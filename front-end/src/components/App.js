@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import User from './User'
 import Home from './Home'
+import RecipeList from './RecipeList'
 
 
 class App extends Component {
@@ -15,7 +16,32 @@ class App extends Component {
   render() {
     return(
       <div className='main-container'>
-        <Home />
+        <header className='menu-icon'>
+          <div className='menu-bar'></div>
+          <div className='menu-bar'></div>
+          <div className='menu-bar'></div>
+        </header>
+        <hr></hr>
+        
+        <Route 
+          path='/'
+          exact
+          render={props => (
+            <Home 
+              {...props} 
+            />
+          )} 
+        />
+
+        <Route 
+          path='/RecipeList'
+          render={props => (
+            <RecipeList 
+              {...props} 
+            />
+          )} 
+        />        
+
       </div>
     )
   }

@@ -6,14 +6,8 @@ class Home extends Component {
 	render() {
 		return(
 			<div className='home-container'>
-				<div className='menu-icon'>
-					<div className='menu-bar'></div>
-					<div className='menu-bar'></div>
-					<div className='menu-bar'></div>
-				</div>
-				<hr></hr>
 				<section className='genre-body'>
-					<div className='dinner'>Dinner</div>
+					<Link to='/recipelist/'><div className='dinner'>Dinner</div></Link>
 					<div className='add-genre'>+</div>
 				</section>
 			</div>
