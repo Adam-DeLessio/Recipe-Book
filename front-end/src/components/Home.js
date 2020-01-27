@@ -7,8 +7,8 @@ class Home extends Component {
 		return(
 			<div className='home-container'>
 				<section className='genre-body'>
-					<Link to='/recipelist/'><div className='dinner'>Dinner</div></Link>
-					<div className='add-genre'>+</div>
+					<Link className='dinner' to='/recipelist/'><div>Dinner</div></Link>
+					<Link className='add-genre add'><div>+</div></Link>
 				</section>
 			</div>
 		)

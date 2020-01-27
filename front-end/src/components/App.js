@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import User from './User'
 import Home from './Home'
 import RecipeList from './RecipeList'
+import AddRecipe from './AddRecipe'
 
 
 class App extends Component {
