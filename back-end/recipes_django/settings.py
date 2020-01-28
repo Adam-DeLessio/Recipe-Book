@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recipes',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +52,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# MIDDLEWARE_CLASSES = (
+#     'recipes.CorsMiddleware',
+# )
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'recipes_django.urls'
 
@@ -81,7 +89,7 @@ DATABASES = {
         'NAME': 'recipes',
         'User': 'recipe_user',
         'Password': 'recipe',
-        'Host': 'Localhost',
+        'Host': 'localhost',
     }
 }
 
