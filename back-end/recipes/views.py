@@ -12,10 +12,9 @@
 
 
 
-from django.contrib.auth.models import User, Group
+from recipes.models import Recipe
 from rest_framework import viewsets
 from .serializers import RecipeSerializer
-from .models import Recipe
 
 class RecipeViewSet(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
