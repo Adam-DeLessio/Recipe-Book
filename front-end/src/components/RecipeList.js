@@ -19,13 +19,13 @@ class RecipeList extends Component {
 	render() {
 		let names = this.state.data.map(name => {
 			return(
-				<li key={name.id}>{name.name}</li>
+				<li className='recipe' key={name.id}>{name.name}</li>
 			)
 		})
 		return(
 			<div className='recipelist-container'>
 				<ul className='recipe-list'>{names}</ul>
-				<Link className='add-recipe add'><div>+</div></Link>
+				<Link to='/addrecipe/' className='add-recipe add'><div>+</div></Link>
 			</div>
 
 		)

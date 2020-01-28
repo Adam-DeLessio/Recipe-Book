@@ -8,7 +8,7 @@ class Home extends Component {
 			<div className='home-container'>
 				<section className='genre-body'>
 					<Link className='dinner' to='/recipelist/'><div>Dinner</div></Link>
-					<Link className='add-genre add'><div>+</div></Link>
+					
 				</section>
 			</div>
 		)
@@ -16,3 +16,6 @@ class Home extends Component {
 }
 
 export default Home
+
+
+// <Link className='add-genre add'><div>+</div></Link>

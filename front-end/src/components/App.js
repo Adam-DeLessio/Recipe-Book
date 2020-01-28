@@ -41,7 +41,16 @@ class App extends Component {
               {...props} 
             />
           )} 
-        />        
+        />
+
+        <Route
+          path='/AddRecipe'
+          render={props => (
+            <AddRecipe
+              {...props}
+            />
+          )}      
+        />
 
       </div>
     )
