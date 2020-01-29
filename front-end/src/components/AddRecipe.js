@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './AddRecipe.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class AddRecipe extends Component {
 	constructor(props) {
@@ -27,14 +28,20 @@ class AddRecipe extends Component {
 		}
 		axios.post('http://localhost:8000/recipes/', newRecipe)
 		console.log(newRecipe)
+		this.setState({ name: '' })
+		this.setState({ description: '' })
 	}
 	render() {
 		return(
-			<form onSubmit={this.onSubmit}>
-				<input className='recipe-name' placeholder='Recipe Name' value={this.state.name} onChange={this.newName}/>
-				<input className='recipe-describe' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription}/>
-				<button type='submit' className='button'>Add Recipe</button>
-			</form>
+			<div className='add-recipe-container'>
+				<form onSubmit={this.onSubmit}>
+					<input className='recipe-name' placeholder='Recipe Name' value={this.state.name} onChange={this.newName} required/>
+					<input className='recipe-describe' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription} required/>
+					<button type='submit' className='button'>Add Recipe</button>
+				</form>
+
+				<Link to='/recipelist/'><div className='back-button'></div></Link>
+			</div>
 		)
 	}
 }

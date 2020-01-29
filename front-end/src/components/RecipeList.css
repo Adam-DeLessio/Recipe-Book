@@ -12,3 +12,10 @@
 	list-style-type: none;
 	margin: 5px;
 }
+.back-button {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 40px solid gray;
+}

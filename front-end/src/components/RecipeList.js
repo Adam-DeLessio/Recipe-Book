@@ -26,6 +26,7 @@ class RecipeList extends Component {
 			<div className='recipelist-container'>
 				<ul className='recipe-list'>{names}</ul>
 				<Link to='/addrecipe/' className='add-recipe add'><div>+</div></Link>
+				<Link to='/'><div className='back-button'></div></Link>
 			</div>
 
 		)
