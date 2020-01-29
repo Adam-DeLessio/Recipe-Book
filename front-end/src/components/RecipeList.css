@@ -11,6 +11,8 @@
 	height: 50px;
 	list-style-type: none;
 	margin: 5px;
+	text-decoration: none;
+	color: black;
 }
 .back-button {
 	width: 0; 

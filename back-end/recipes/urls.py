@@ -6,6 +6,9 @@ from django.urls import include, path
 
 urlpatterns = [
 	url(r'^recipes/$', views.RecipeList),
+	path('recipes/<int:pk>/', views.RecipeDetail, name='RecipeDetail'),
 ]
+
+
 
 urlpatterns = format_suffix_patterns(urlpatterns)
