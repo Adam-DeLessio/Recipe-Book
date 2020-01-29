@@ -1,27 +1,31 @@
-# from rest_framework import generics
-# from .serializers import RecipeSerializer
-# from .models import Recipe
-# from rest_framework import permissions
-
-from recipes.models import Recipe
-from rest_framework import viewsets
+from rest_framework import generics
+from .models import Recipe
 from .serializers import RecipeSerializer
 
-class RecipeViewSet(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
-    serializer_class = RecipeSerializer
-
-class AddRecipeViewSet(viewsets.ModelViewSet):
-    queryset = Recipe.objects.all()
-    serializer_class = RecipeSerializer	
+# class RecipeList(generics.ListCreateAPIView):
+#     queryset = Recipe.objects.all()
+#     serializer_class = RecipeSerializer
 
 
-# def artist_create(request):
-#     if request.method == 'POST':
-#         form = ArtistForm(request.POST)
-#         if form.is_valid():
-#             artist = form.save()
-#             return redirect('artist_detail', pk=artist.pk)
-#     else:
-#         form = ArtistForm()
-#     return render(request, 'tunr/artist_form.html', {'form': form})
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+
+
+
+@api_view(['GET', 'POST'])
+def RecipeList(request):
+    if request.method == 'GET':
+        data = Recipe.objects.all()
+
+        serializer = RecipeSerializer(data, context={'request': request}, many=True)
+
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = RecipeSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+            
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

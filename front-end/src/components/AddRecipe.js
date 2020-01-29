@@ -25,7 +25,8 @@ class AddRecipe extends Component {
 			name: this.state.name,
 			description: this.state.description
 		}
-		axios.post('http://localhost:8000/addrecipe', newRecipe)
+		axios.post('http://localhost:8000/recipes/', newRecipe)
+		console.log(newRecipe)
 	}
 	render() {
 		return(
