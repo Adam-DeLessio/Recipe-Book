@@ -6,6 +6,8 @@
 	padding: 0;
 }
 .recipe {
+	display: flex;
+	justify-content: space-between;
 	border: 1px solid black;
 	width: 80%;
 	height: 50px;
@@ -20,4 +22,15 @@
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent;
 	border-right: 40px solid gray;
+}
+.recipe-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.delete-recipe {
+	width: 60px;
+	height: 20px;
+	background-color: red;
+	color: black;
 }

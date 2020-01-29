@@ -19,7 +19,7 @@ class Home extends Component {
 	render() {
 		let genres = this.state.data.map(genre => {
 			return(
-				<Link className='genre' to='/recipelist/' key={genre.id}><li>{genre.name}</li></Link>
+				<Link className='genre' to={`/recipelist/${genre.name}`} key={genre.id}><li>{genre.name}</li></Link>
 			)
 		})
 		return(

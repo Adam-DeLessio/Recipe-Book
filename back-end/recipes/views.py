@@ -20,6 +20,8 @@ def RecipeList(request):
             return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+
 @api_view(['GET', 'DELETE'])
 def RecipeDetail(request, pk):
     if request.method == 'GET':
@@ -28,4 +30,3 @@ def RecipeDetail(request, pk):
         return Response(serializer.data)
     elif request.method == 'DELETE':
         recipe = Recipe.objects.get(pk=pk).delete()
-        return redirect('RecipeList')
