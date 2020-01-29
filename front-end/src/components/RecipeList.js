@@ -9,25 +9,24 @@ class RecipeList extends Component {
 		this.state = {
 			data: []
 		}
-		this.onClick = this.onClick.bind(this)
 	}
 	componentDidMount() {
+		let name = this.props.match.params.name
 	  	axios.get('http://localhost:8000/recipes/')
 	  	.then(res => {
 	  		this.setState({ data: res.data })
 	  	})
 	}
-	onClick() {
-
-	}
 	render() {
+		let genreParam = this.props.match.params.name
 		let names = this.state.data.map(name => {
-			return(
-				<div className='recipe' key={name.id}>
-					<Link to={`/recipe/${name.id}`}><li>{name.name}</li></Link>
-					<button className='delete-recipe' type='button' onClick={this.onClick}>DELETE</button>
-				</div>
-			)
+			if (name.genre === genreParam) {
+				return(
+					<div className='recipe' key={name.id}>
+						<Link to={`/recipe/${name.id}`}><li>{name.name}</li></Link>
+					</div>
+				)
+			}
 		})
 		return(
 			<div className='recipelist-container'>

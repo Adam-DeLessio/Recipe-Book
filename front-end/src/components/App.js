@@ -37,7 +37,7 @@ class App extends Component {
         />
 
         <Route 
-          path='/RecipeList'
+          path='/RecipeList/:name'
           render={props => (
             <RecipeList 
               {...props} 
