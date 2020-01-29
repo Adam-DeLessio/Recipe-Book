@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import generics
 from .models import Recipe
 from .serializers import RecipeSerializer
@@ -20,14 +20,12 @@ def RecipeList(request):
             return Response(status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET'])
+@api_view(['GET', 'DELETE'])
 def RecipeDetail(request, pk):
-    # try:
-    #     recipe = Recipe.objects.get(pk=pk)
-    # except Recipe.DoesNotExist:
-    #     return Response(status=status.HTTP_404_NOT_FOUND)
-
     if request.method == 'GET':
         recipe = Recipe.objects.get(pk=pk)
         serializer = RecipeSerializer(recipe, context={'request': request})
         return Response(serializer.data)
+    elif request.method == 'DELETE':
+        recipe = Recipe.objects.get(pk=pk).delete()
+        return redirect('RecipeList')

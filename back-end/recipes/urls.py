@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-	url(r'^recipes/$', views.RecipeList),
+	url(r'^recipes/$', views.RecipeList, name='RecipeList'),
 	path('recipes/<int:pk>/', views.RecipeDetail, name='RecipeDetail'),
 ]
 
