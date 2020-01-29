@@ -27,7 +27,6 @@ class AddRecipe extends Component {
 			description: this.state.description
 		}
 		axios.post('http://localhost:8000/recipes/', newRecipe)
-		console.log(newRecipe)
 		this.setState({ name: '' })
 		this.setState({ description: '' })
 	}
@@ -35,8 +34,8 @@ class AddRecipe extends Component {
 		return(
 			<div className='add-recipe-container'>
 				<form onSubmit={this.onSubmit}>
-					<input className='recipe-name' placeholder='Recipe Name' value={this.state.name} onChange={this.newName} required/>
-					<input className='recipe-describe' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription} required/>
+					<input className='recipe-name input' placeholder='Recipe Name' value={this.state.name} onChange={this.newName} required/>
+					<input className='recipe-describe input' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription} required/>
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
 

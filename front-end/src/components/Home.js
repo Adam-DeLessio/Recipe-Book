@@ -3,13 +3,16 @@ import './Home.css'
 import { Link } from 'react-router-dom'
 
 class Home extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+
+		}
+	}
 	render() {
 		return(
 			<div className='home-container'>
-				<section className='genre-body'>
-					<Link className='dinner' to='/recipelist/'><div>Dinner</div></Link>
-					
-				</section>
+				<Link to='/addgenre/'className='add-genre add'><div>+</div></Link>
 			</div>
 		)
 	}
@@ -18,4 +21,3 @@ class Home extends Component {
 export default Home
 
 
-// <Link className='add-genre add'><div>+</div></Link>

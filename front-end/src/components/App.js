@@ -5,6 +5,7 @@ import User from './User'
 import Home from './Home'
 import RecipeList from './RecipeList'
 import AddRecipe from './AddRecipe'
+import AddGenre from './AddGenre'
 
 
 class App extends Component {
@@ -50,6 +51,15 @@ class App extends Component {
               {...props}
             />
           )}      
+        />
+
+        <Route
+          path='/AddGenre'
+          render={props => (
+            <AddGenre
+              {...props}
+            />
+          )}
         />
 
       </div>
