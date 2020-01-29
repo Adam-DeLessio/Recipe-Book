@@ -20,7 +20,7 @@ class AddGenre extends Component {
 		const newGenre = {
 			name: this.state.name
 		}
-		axios.post('http//localhost8000', newGenre)
+		axios.post('http://localhost:8000/genres/', newGenre)
 		this.setState({ name: '' })
 	}
 	render() {
