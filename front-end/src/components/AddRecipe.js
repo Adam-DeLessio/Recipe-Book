@@ -9,12 +9,10 @@ class AddRecipe extends Component {
 		this.state = {
 			data: [],
 			name: '',
-			description: '',
-			genre: ''
+			description: ''
 		}
 		this.newName = this.newName.bind(this)
 		this.newDescription = this.newDescription.bind(this)
-		this.newGenre = this.newGenre.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
 	componentDidMount() {
@@ -33,10 +31,13 @@ class AddRecipe extends Component {
 		this.setState({ genre: event.target.value })
 	}
 	onSubmit(event) {
+		var e = document.getElementById("select-genre");
+		var value = e.options[e.selectedIndex].value;
 		event.preventDefault()
 		const newRecipe = {
 			name: this.state.name,
-			description: this.state.description
+			description: this.state.description,
+			genre: value
 		}
 		axios.post('http://localhost:8000/recipes/', newRecipe)
 		this.setState({ name: '' })
@@ -53,7 +54,7 @@ class AddRecipe extends Component {
 				<form onSubmit={this.onSubmit}>
 					<input className='recipe-name input' placeholder='Recipe Name' value={this.state.name} onChange={this.newName} required/>
 					<input className='recipe-describe input' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription} required/>
-					<select className='selections' required>{selections}</select>
+					<select id='select-genre' className='selections' required>{selections}</select>
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
 
