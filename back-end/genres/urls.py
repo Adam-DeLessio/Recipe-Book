@@ -6,6 +6,7 @@ from django.urls import include, path
 
 urlpatterns = [
 	url(r'^genres/$', views.GenreList),
+	path('genres/<int:pk>/', views.GenreDetail, name='GenreDetail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

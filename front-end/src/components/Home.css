@@ -33,3 +33,7 @@
 	text-decoration: none;
 	color: black;
 }
+.delete-genre {
+	background-color: red;
+	border: 1px solid black;
+}

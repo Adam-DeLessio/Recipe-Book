@@ -58,7 +58,7 @@ class AddRecipe extends Component {
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
 
-				<Link to='/recipelist/'><div className='back-button'></div></Link>
+				<Link to='/'><div className='back-button'></div></Link>
 			</div>
 		)
 	}

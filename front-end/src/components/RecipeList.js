@@ -9,14 +9,18 @@ class RecipeList extends Component {
 		this.state = {
 			data: []
 		}
+		this.onClick = this.onClick.bind(this)
 	}
 	componentDidMount() {
-		let name = this.props.match.params.name
 	  	axios.get('http://localhost:8000/recipes/')
 	  	.then(res => {
 	  		this.setState({ data: res.data })
 	  	})
 	}
+	onClick() {
+		let id = this.props.match.params.id
+		axios.delete('http://localhost:8000/genres/' + id)
+	}	
 	render() {
 		let genreParam = this.props.match.params.name
 		let names = this.state.data.map(name => {
@@ -24,6 +28,7 @@ class RecipeList extends Component {
 				return(
 					<div className='recipe' key={name.id}>
 						<Link to={`/recipe/${name.id}`}><li>{name.name}</li></Link>
+
 					</div>
 				)
 			}
@@ -33,6 +38,7 @@ class RecipeList extends Component {
 				<ul className='recipe-list'>{names}</ul>
 				<Link to='/addrecipe/' className='add-recipe add'><div>+</div></Link>
 				<Link to='/'><div className='back-button'></div></Link>
+				<button className='delete-genre' type='button' onClick={this.onClick}>DELETE</button>
 			</div>
 
 		)

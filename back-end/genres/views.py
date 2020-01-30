@@ -19,3 +19,13 @@ def GenreList(req):
 			serializer.save()
 			return Response(status=status.HTTP_201_CREATED)
 		return Response(serializer.erros, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'DELETE'])
+def GenreDetail(request, pk):
+    if request.method == 'GET':
+        genre = Genre.objects.get(pk=pk)
+        serializer = GenreSerializer(genre, context={'request': request})
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        genre = Genre.objects.get(pk=pk).delete()

@@ -7,7 +7,7 @@ from django.urls import include, path
 urlpatterns = [
 	url(r'^recipes/$', views.RecipeList, name='RecipeList'),
 	path('recipes/<int:pk>/', views.RecipeDetail, name='RecipeDetail'),
-	path('redirect/', views.RecipeList, name='RecipeList'),
+	# path('redirect/', views.RecipeList, name='RecipeList'),
 ]
 
 

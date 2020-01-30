@@ -21,7 +21,6 @@ class Recipe extends Component {
 	onClick() {
 		let id = this.props.match.params.id
 		axios.delete('http://localhost:8000/recipes/' + id)
-
 	}
 	render() {	
 		return(
@@ -30,7 +29,7 @@ class Recipe extends Component {
 				<h2>{this.state.data.genre}</h2>
 				<button className='delete-recipe' type='button' onClick={this.onClick}>DELETE</button>
 
-				<Link to='/recipelist/'><div className='back-button'></div></Link>
+				<Link to='/'><div className='back-button'></div></Link>
 			</div>
 		)
 	}
