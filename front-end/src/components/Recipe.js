@@ -23,12 +23,17 @@ class Recipe extends Component {
 		axios.delete('http://localhost:8000/recipes/' + id)
 	}
 	render() {	
+		let name = this.props.match.params.name
 		return(
 			<div className='recipe-container'>
-				<h1>{this.state.data.description}</h1>
-				<h2>{this.state.data.genre}</h2>
-				<button className='delete-recipe' type='button' onClick={this.onClick}>DELETE</button>
+				<header className='recipe-header'>
+					<h2 className='name'>{name}</h2>
+					<button className='delete-recipe' type='button' onClick={this.onClick}>DELETE</button>
+				</header>
+				<p className='recipe-description'>{`"${this.state.data.description}"`}</p>
 
+				<h3 className='instructions'>Instructions:</h3>
+				<p className='recipe-process'>{this.state.data.process}</p>
 				<Link to='/'><div className='back-button'></div></Link>
 			</div>
 		)

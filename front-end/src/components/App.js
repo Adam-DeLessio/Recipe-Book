@@ -64,7 +64,7 @@ class App extends Component {
         />
 
         <Route
-          path='/Recipe/:id'
+          path='/Recipe/:id/:name'
           render={props => (
             <Recipe
               {...props}

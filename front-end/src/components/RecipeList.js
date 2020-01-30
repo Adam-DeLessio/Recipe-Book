@@ -26,7 +26,7 @@ class RecipeList extends Component {
 		let names = this.state.data.map(name => {
 			if (name.genre === genreParam) {
 				return(
-					<Link className='recipe' key={name.id} to={`/recipe/${name.id}`}><li>{name.name}</li></Link>
+					<Link className='recipe' key={name.id} to={`/recipe/${name.id}/${name.name}`}><li>{name.name}</li></Link>
 				)
 			}
 		})

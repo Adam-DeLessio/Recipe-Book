@@ -47,7 +47,8 @@ class AddRecipe extends Component {
 	}
 	submitIng() {
 		let ingList = document.querySelector('.ing-list')
-		let newIng = document.createElement('li').setAttribute('class', 'ing')
+		let newIng = document.createElement('li')
+		newIng.setAttribute('class', 'ing')
 		newIng.innerHTML = this.state.ingredient
 		ingList.appendChild(newIng)
 		this.setState({ ingredient: '' })

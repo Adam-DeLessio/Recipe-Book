@@ -1,0 +1,27 @@
+.recipe-header {
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
+	text-align: center;
+	width: 100%;
+}
+.name {
+	grid-column-start: 2;
+	font-size: 26px;
+}
+.delete-recipe {
+	height: 30%;
+	background-color: rgba(255, 0, 0, .5);
+	color: black;
+	border: 0;
+	place-self: center;
+}
+.recipe-description {
+	margin: 0;
+}
+.instructions {
+	margin: 0;
+	margin-top: 40px;
+}
+.recipe-process {
+	margin: 14px 30px;
+}
