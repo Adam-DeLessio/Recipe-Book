@@ -24,6 +24,7 @@ class Recipe extends Component {
 	}
 	render() {	
 		let name = this.props.match.params.name
+		console.log(this.state.data)
 		return(
 			<div className='recipe-container'>
 				<header className='recipe-header'>
@@ -31,6 +32,8 @@ class Recipe extends Component {
 					<button className='delete-recipe' type='button' onClick={this.onClick}>DELETE</button>
 				</header>
 				<p className='recipe-description'>{`"${this.state.data.description}"`}</p>
+
+				<ul></ul>
 
 				<h3 className='instructions'>Instructions:</h3>
 				<p className='recipe-process'>{this.state.data.process}</p>

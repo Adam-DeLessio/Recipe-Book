@@ -11,6 +11,7 @@ class AddRecipe extends Component {
 			name: '',
 			description: '',
 			ingredient: '',
+			ingredientsArray: [],
 			process: ''
 		}
 		this.handleChange = this.handleChange.bind(this)
@@ -35,11 +36,28 @@ class AddRecipe extends Component {
 			name: this.state.name,
 			description: this.state.description,
 			genre: value,
+			ing1: this.state.ingredientsArray[0],
+			ing2: this.state.ingredientsArray[1],
+			ing3: this.state.ingredientsArray[2],
+			ing4: this.state.ingredientsArray[3],
+			ing5: this.state.ingredientsArray[4],
+			ing6: this.state.ingredientsArray[5],
+			ing7: this.state.ingredientsArray[6],
+			ing8: this.state.ingredientsArray[7],
+			ing9: this.state.ingredientsArray[8],
+			ing10: this.state.ingredientsArray[9],
+			ing11: this.state.ingredientsArray[10],
+			ing12: this.state.ingredientsArray[11],
+			ing13: this.state.ingredientsArray[12],
+			ing14: this.state.ingredientsArray[13],
+			ing15: this.state.ingredientsArray[14],
 			process: this.state.process
 		}
+		console.log(this.state.ingredientsArray[0])
 		axios.post('http://localhost:8000/recipes/', newRecipe)
 		this.setState({ name: '' })
 		this.setState({ description: '' })
+		this.setState({ ingredientsArray: [] })
 		this.setState({ process: '' })
 	}
 	addIngredient(event) {
@@ -51,6 +69,7 @@ class AddRecipe extends Component {
 		newIng.setAttribute('class', 'ing')
 		newIng.innerHTML = this.state.ingredient
 		ingList.appendChild(newIng)
+		this.setState({ ingredientsArray: [...this.state.ingredientsArray, newIng.innerHTML] })
 		this.setState({ ingredient: '' })
 	}
 	render() {
