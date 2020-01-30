@@ -21,7 +21,6 @@ class Home extends Component {
 			return(
 				<div className='genre' key={genre.id}>
 					<Link to={`/recipelist/${genre.id}/${genre.name}`}><li>{genre.name}</li></Link>
-					
 				</div>
 			)
 		})

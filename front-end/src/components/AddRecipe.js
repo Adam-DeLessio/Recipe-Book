@@ -9,11 +9,14 @@ class AddRecipe extends Component {
 		this.state = {
 			data: [],
 			name: '',
-			description: ''
+			description: '',
+			ingredient: ''
 		}
 		this.newName = this.newName.bind(this)
 		this.newDescription = this.newDescription.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
+		this.addIngredient = this.addIngredient.bind(this)
+		this.submitIng = this.submitIng.bind(this)
 	}
 	componentDidMount() {
 		axios.get('http://localhost:8000/genres/')
@@ -43,6 +46,16 @@ class AddRecipe extends Component {
 		this.setState({ name: '' })
 		this.setState({ description: '' })
 	}
+	addIngredient(event) {
+		this.setState({ ingredient: event.target.value })
+	}
+	submitIng() {
+		let ingList = document.querySelector('.ing-list')
+		let newIng = document.createElement('li')
+		newIng.innerHTML = this.state.ingredient
+		ingList.appendChild(newIng)
+		this.setState({ ingredient: '' })
+	}
 	render() {
 		let selections = this.state.data.map(genre => {
 			return(
@@ -52,9 +65,26 @@ class AddRecipe extends Component {
 		return(
 			<div className='add-recipe-container'>
 				<form onSubmit={this.onSubmit}>
-					<input className='recipe-name input' placeholder='Recipe Name' value={this.state.name} onChange={this.newName} required/>
-					<input className='recipe-describe input' placeholder='Recipe Describe' value={this.state.description} onChange={this.newDescription} required/>
+					<input
+						className='recipe-name input'
+						placeholder='Recipe Name'
+						value={this.state.name}
+						onChange={this.newName}
+						required
+					/>
 					<select id='select-genre' className='selections' required>{selections}</select>
+					
+					<div className='add-methods'>
+						<ul className='ing-list'></ul>
+						<input 
+							className='add-ingredient'
+							placeholder='New Ingredient'
+							value={this.state.ingredient}
+							onChange={this.addIngredient}
+						/>
+						<button className='submit-ing' onClick={this.submitIng}>Add Ingredient</button>
+					</div>
+
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
 

@@ -24,3 +24,7 @@ form {
 	border-bottom: 10px solid transparent;
 	border-right: 40px solid gray;
 }
+
+.submit-ing {
+	border: 1px solid black;
+}
