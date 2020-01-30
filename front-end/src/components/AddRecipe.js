@@ -10,10 +10,10 @@ class AddRecipe extends Component {
 			data: [],
 			name: '',
 			description: '',
-			ingredient: ''
+			ingredient: '',
+			process: ''
 		}
-		this.newName = this.newName.bind(this)
-		this.newDescription = this.newDescription.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 		this.addIngredient = this.addIngredient.bind(this)
 		this.submitIng = this.submitIng.bind(this)
@@ -24,14 +24,8 @@ class AddRecipe extends Component {
 			this.setState({ data: res.data })
 		})
 	}
-	newName(event) {
-		this.setState({ name: event.target.value })
-	}
-	newDescription(event) {
-		this.setState({ description: event.target.value })
-	}
-	newGenre(event) {
-		this.setState({ genre: event.target.value })
+	handleChange(e) {
+		this.setState({ [e.target.name]: e.target.value })
 	}
 	onSubmit(event) {
 		var e = document.getElementById("select-genre");
@@ -40,11 +34,13 @@ class AddRecipe extends Component {
 		const newRecipe = {
 			name: this.state.name,
 			description: this.state.description,
-			genre: value
+			genre: value,
+			process: this.state.process
 		}
 		axios.post('http://localhost:8000/recipes/', newRecipe)
 		this.setState({ name: '' })
 		this.setState({ description: '' })
+		this.setState({ process: '' })
 	}
 	addIngredient(event) {
 		this.setState({ ingredient: event.target.value })
@@ -67,13 +63,21 @@ class AddRecipe extends Component {
 				<form onSubmit={this.onSubmit}>
 					<input
 						className='recipe-name input'
+						name='name'
 						placeholder='Recipe Name'
 						value={this.state.name}
-						onChange={this.newName}
+						onChange={this.handleChange}
 						required
 					/>
 					<select id='select-genre' className='selections' required>{selections}</select>
-					
+					<textarea
+						className='description'
+						name='description'
+						placeholder='Description'
+						value={this.state.description}
+						onChange={this.handleChange}
+					/>
+
 					<div className='add-methods'>
 						<ul className='ing-list'></ul>
 						<input 
@@ -82,9 +86,16 @@ class AddRecipe extends Component {
 							value={this.state.ingredient}
 							onChange={this.addIngredient}
 						/>
-						<button className='submit-ing' onClick={this.submitIng}>Add Ingredient</button>
+						<div className='submit-ing' onClick={this.submitIng}>Add Ingredient</div>
 					</div>
 
+					<textarea
+						className='process'
+						name='process'
+						placeholder="How it's done..."
+						value={this.state.process}
+						onChange={this.handleChange}
+					/>
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
 

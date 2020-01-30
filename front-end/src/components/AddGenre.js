@@ -28,7 +28,7 @@ class AddGenre extends Component {
 			<div className='add-genre-container'>
 				<form className='genre-form' onSubmit={this.onSubmit}>
 					<input className='genre-name input' placeholder='Genre Name' value={this.state.name} onChange={this.newName} required/>
-					<button className='button' type='submit'>Add Genre</button>
+					<button className='genre-button' type='submit'>Add Genre</button>
 				</form>
 				<Link to='/'><div className='back-button'></div></Link>
 			</div>
