@@ -33,14 +33,14 @@ class RecipeList extends Component {
 		return(
 			<div className='recipelist-container'>
 				<header className='genre-header'>
+					<Link to='/addrecipe/' className='add-recipe'>
+						<div className='horizontal'></div>
+						<div className='vertical'></div>
+					</Link>				
 					<h1 className='title'>{genreParam}</h1>
 					<button className='delete-genre' type='button' onClick={this.onClick}>DELETE</button>
 				</header>
 				<ul className='recipe-list'>{names}</ul>
-				<Link to='/addrecipe/' className='add-recipe add'>
-					<div className='horizontal-plus'></div>
-					<div className='vertical-plus'></div>
-				</Link>
 				<Link to='/'><div className='back-button'></div></Link>
 			</div>
 

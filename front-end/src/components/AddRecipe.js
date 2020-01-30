@@ -47,7 +47,7 @@ class AddRecipe extends Component {
 	}
 	submitIng() {
 		let ingList = document.querySelector('.ing-list')
-		let newIng = document.createElement('li')
+		let newIng = document.createElement('li').setAttribute('class', 'ing')
 		newIng.innerHTML = this.state.ingredient
 		ingList.appendChild(newIng)
 		this.setState({ ingredient: '' })
@@ -79,14 +79,16 @@ class AddRecipe extends Component {
 					/>
 
 					<div className='add-methods'>
+						<div className='add-ing-container'>
+							<input 
+								className='add-ingredient'
+								placeholder='New Ingredient'
+								value={this.state.ingredient}
+								onChange={this.addIngredient}
+							/>
+							<div className='submit-ing' onClick={this.submitIng}>Add</div>
+						</div>
 						<ul className='ing-list'></ul>
-						<input 
-							className='add-ingredient'
-							placeholder='New Ingredient'
-							value={this.state.ingredient}
-							onChange={this.addIngredient}
-						/>
-						<div className='submit-ing' onClick={this.submitIng}>Add Ingredient</div>
 					</div>
 
 					<textarea
