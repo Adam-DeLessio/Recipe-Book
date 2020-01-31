@@ -37,21 +37,6 @@ class AddRecipe extends Component {
 			description: this.state.description,
 			genre: value,
 			ings: this.state.ingredientsArray,
-			// ing1: this.state.ingredientsArray[0],
-			// ing2: this.state.ingredientsArray[1],
-			// ing3: this.state.ingredientsArray[2],
-			// ing4: this.state.ingredientsArray[3],
-			// ing5: this.state.ingredientsArray[4],
-			// ing6: this.state.ingredientsArray[5],
-			// ing7: this.state.ingredientsArray[6],
-			// ing8: this.state.ingredientsArray[7],
-			// ing9: this.state.ingredientsArray[8],
-			// ing10: this.state.ingredientsArray[9],
-			// ing11: this.state.ingredientsArray[10],
-			// ing12: this.state.ingredientsArray[11],
-			// ing13: this.state.ingredientsArray[12],
-			// ing14: this.state.ingredientsArray[13],
-			// ing15: this.state.ingredientsArray[14],
 			process: this.state.process
 		}
 		axios.post('http://localhost:8000/recipes/', newRecipe)
@@ -59,6 +44,10 @@ class AddRecipe extends Component {
 		this.setState({ description: '' })
 		this.setState({ ingredientsArray: [] })
 		this.setState({ process: '' })
+		let removeIng = document.querySelector('.ing-list')
+		while(removeIng.firstChild) {
+			removeIng.removeChild(removeIng.firstChild)
+		}
 	}
 	addIngredient(event) {
 		this.setState({ ingredient: event.target.value })

@@ -39,7 +39,8 @@ class Recipe extends Component {
 				</header>
 				<p className='recipe-description'>{`"${this.state.data.description}"`}</p>
 
-				<ul>{ings}</ul>
+				<ul className='ings-list'>{ings}</ul>
+				<ul className='ings-list2'>{}</ul>
 
 				<h3 className='instructions'>Instructions:</h3>
 				<p className='recipe-process'>{this.state.data.process}</p>

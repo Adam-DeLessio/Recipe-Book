@@ -18,6 +18,10 @@
 .recipe-description {
 	margin: 0;
 }
+.ings-list {
+	list-style-type: none;
+	padding: 0;
+}
 .instructions {
 	margin: 0;
 	margin-top: 40px;
