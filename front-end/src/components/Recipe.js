@@ -7,7 +7,8 @@ class Recipe extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			data: []
+			data: [],
+			ingredients: []
 		}
 		this.onClick = this.onClick.bind(this)
 	}
@@ -16,6 +17,7 @@ class Recipe extends Component {
 		axios.get('http://localhost:8000/recipes/' + id)
 			.then(res => {
 				this.setState({ data: res.data })
+				this.setState({ ingredients: res.data.ings })
 			})
 	}
 	onClick() {
@@ -24,7 +26,11 @@ class Recipe extends Component {
 	}
 	render() {	
 		let name = this.props.match.params.name
-		console.log(this.state.data)
+		let ings = this.state.ingredients.map(ing => {
+			return(
+				<li className='recipe-ing' key={ing}>{ing}</li>
+			)
+		})
 		return(
 			<div className='recipe-container'>
 				<header className='recipe-header'>
@@ -33,7 +39,7 @@ class Recipe extends Component {
 				</header>
 				<p className='recipe-description'>{`"${this.state.data.description}"`}</p>
 
-				<ul></ul>
+				<ul>{ings}</ul>
 
 				<h3 className='instructions'>Instructions:</h3>
 				<p className='recipe-process'>{this.state.data.process}</p>

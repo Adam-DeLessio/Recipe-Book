@@ -36,24 +36,24 @@ class AddRecipe extends Component {
 			name: this.state.name,
 			description: this.state.description,
 			genre: value,
-			ing1: this.state.ingredientsArray[0],
-			ing2: this.state.ingredientsArray[1],
-			ing3: this.state.ingredientsArray[2],
-			ing4: this.state.ingredientsArray[3],
-			ing5: this.state.ingredientsArray[4],
-			ing6: this.state.ingredientsArray[5],
-			ing7: this.state.ingredientsArray[6],
-			ing8: this.state.ingredientsArray[7],
-			ing9: this.state.ingredientsArray[8],
-			ing10: this.state.ingredientsArray[9],
-			ing11: this.state.ingredientsArray[10],
-			ing12: this.state.ingredientsArray[11],
-			ing13: this.state.ingredientsArray[12],
-			ing14: this.state.ingredientsArray[13],
-			ing15: this.state.ingredientsArray[14],
+			ings: this.state.ingredientsArray,
+			// ing1: this.state.ingredientsArray[0],
+			// ing2: this.state.ingredientsArray[1],
+			// ing3: this.state.ingredientsArray[2],
+			// ing4: this.state.ingredientsArray[3],
+			// ing5: this.state.ingredientsArray[4],
+			// ing6: this.state.ingredientsArray[5],
+			// ing7: this.state.ingredientsArray[6],
+			// ing8: this.state.ingredientsArray[7],
+			// ing9: this.state.ingredientsArray[8],
+			// ing10: this.state.ingredientsArray[9],
+			// ing11: this.state.ingredientsArray[10],
+			// ing12: this.state.ingredientsArray[11],
+			// ing13: this.state.ingredientsArray[12],
+			// ing14: this.state.ingredientsArray[13],
+			// ing15: this.state.ingredientsArray[14],
 			process: this.state.process
 		}
-		console.log(this.state.ingredientsArray[0])
 		axios.post('http://localhost:8000/recipes/', newRecipe)
 		this.setState({ name: '' })
 		this.setState({ description: '' })
@@ -96,6 +96,7 @@ class AddRecipe extends Component {
 						placeholder='Description'
 						value={this.state.description}
 						onChange={this.handleChange}
+						required
 					/>
 
 					<div className='add-methods'>
@@ -117,6 +118,7 @@ class AddRecipe extends Component {
 						placeholder="How it's done..."
 						value={this.state.process}
 						onChange={this.handleChange}
+						required
 					/>
 					<button type='submit' className='button'>Add Recipe</button>
 				</form>
